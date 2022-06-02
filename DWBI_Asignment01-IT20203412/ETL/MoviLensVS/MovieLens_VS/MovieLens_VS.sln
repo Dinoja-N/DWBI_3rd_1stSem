@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1831
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "MovieLens_VS", "MovieLens_VS\MovieLens_VS.dtproj", "{5BB1552A-E4D9-4E29-9E95-608B3F65904D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BB1552A-E4D9-4E29-9E95-608B3F65904D}.Development|Default.ActiveCfg = Development
+		{5BB1552A-E4D9-4E29-9E95-608B3F65904D}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5CABC9C1-3233-49B1-8CF7-241B8C6BB492}
+	EndGlobalSection
+EndGlobal

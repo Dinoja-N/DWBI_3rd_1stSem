@@ -1,0 +1,1689 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/14/2022 3:09:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DINON"
+  DTS:CreatorName="DINON\dinon"
+  DTS:DTSID="{2AD346A3-BF19-46D6-92DB-2DF5C920618D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{458DEAE1-80E9-4C7A-AAE0-1B4727F3EA9D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DINON.MovieLens_SourceDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{563AEBFD-C376-4D47-A053-2AADB4A0955A}"
+      DTS:ObjectName="DINON.MovieLens_SourceDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DINON;Initial Catalog=MovieLens_SourceDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DINON.MovieLens_Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2B74B4A5-DF68-407B-8D7D-DB9F8CA8812E}"
+      DTS:ObjectName="DINON.MovieLens_Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DINON;Initial Catalog=MovieLens_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Extract Links Data to Staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{34B6A037-A2F1-41F5-9851-4AE476010CA1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract Links Data to Staging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extract Links Data to Staging\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[StgLinks]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Links Data to Staging\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DINON.MovieLens_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[DINON.MovieLens_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Links Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LinkID]"
+                      cachedDataType="numeric"
+                      cachedName="LinkID"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Extract Links Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LinkID]"
+                      lineageId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkID]" />
+                    <inputColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ImdbID]"
+                      cachedDataType="numeric"
+                      cachedName="ImdbID"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Extract Links Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ImdbID]"
+                      lineageId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[ImdbID]" />
+                    <inputColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TmdbID]"
+                      cachedDataType="numeric"
+                      cachedName="TmdbID"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Extract Links Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TmdbID]"
+                      lineageId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TmdbID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LinkID]"
+                      dataType="numeric"
+                      name="LinkID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ImdbID]"
+                      dataType="numeric"
+                      name="ImdbID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TmdbID]"
+                      dataType="numeric"
+                      name="TmdbID"
+                      precision="18" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Links Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Extract Links Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Links Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Links Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Links Data to Staging\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[links]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Links Data to Staging\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DINON.MovieLens_SourceDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DINON.MovieLens_SourceDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkID]"
+                      lineageId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkID]"
+                      name="LinkID"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[ImdbID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ImdbID]"
+                      lineageId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[ImdbID]"
+                      name="ImdbID"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TmdbID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TmdbID]"
+                      lineageId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TmdbID]"
+                      name="TmdbID"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkID]"
+                      dataType="numeric"
+                      name="LinkID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ImdbID]"
+                      dataType="numeric"
+                      name="ImdbID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TmdbID]"
+                      dataType="numeric"
+                      name="TmdbID"
+                      precision="18" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkID]"
+                      dataType="numeric"
+                      lineageId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkID]"
+                      name="LinkID"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ImdbID]"
+                      dataType="numeric"
+                      lineageId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ImdbID]"
+                      name="ImdbID"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TmdbID]"
+                      dataType="numeric"
+                      lineageId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TmdbID]"
+                      name="TmdbID"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extract Links Data to Staging.Paths[OLE DB Source Output]"
+              endId="Package\Extract Links Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Extract Links Data to Staging\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Extract Movies Data to Staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{01d67518-1436-44da-8a58-d40157357be3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract Movies Data to Staging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extract Movies Data to Staging\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[StgMovies]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Movies Data to Staging\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DINON.MovieLens_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[DINON.MovieLens_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Movies Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MovieID]"
+                      cachedDataType="numeric"
+                      cachedName="MovieID"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Extract Movies Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MovieID]"
+                      lineageId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[MovieID]" />
+                    <inputColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Title]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Title"
+                      externalMetadataColumnId="Package\Extract Movies Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                      lineageId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Genres]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Genres"
+                      externalMetadataColumnId="Package\Extract Movies Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Genres]"
+                      lineageId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Genres]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MovieID]"
+                      dataType="numeric"
+                      name="MovieID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Genres]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Genres" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Movies Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Extract Movies Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Movies Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Movies Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Movies Data to Staging\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[movies]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Movies Data to Staging\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DINON.MovieLens_SourceDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DINON.MovieLens_SourceDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[MovieID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MovieID]"
+                      lineageId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[MovieID]"
+                      name="MovieID"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                      lineageId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]"
+                      name="Title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Genres]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Genres]"
+                      lineageId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Genres]"
+                      name="Genres"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MovieID]"
+                      dataType="numeric"
+                      name="MovieID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Genres]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Genres" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MovieID]"
+                      dataType="numeric"
+                      lineageId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MovieID]"
+                      name="MovieID"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Title]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Genres]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Genres]"
+                      name="Genres" />
+                    <outputColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extract Movies Data to Staging.Paths[OLE DB Source Output]"
+              endId="Package\Extract Movies Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Extract Movies Data to Staging\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Extract Ratings Data to Staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{d4b83c0f-f322-401a-ac98-154d4f02772a}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract Ratings Data to Staging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extract Ratings Data to Staging\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[StgRatings]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DINON.MovieLens_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[DINON.MovieLens_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LinkID]"
+                      cachedDataType="numeric"
+                      cachedName="LinkID"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LinkID]"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkID]" />
+                    <inputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[userId]"
+                      cachedDataType="numeric"
+                      cachedName="userId"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[userId]"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[userId]" />
+                    <inputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[movieId]"
+                      cachedDataType="numeric"
+                      cachedName="movieId"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[movieId]"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[movieId]" />
+                    <inputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[timestamp]"
+                      cachedDataType="numeric"
+                      cachedName="timestamp"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[timestamp]" />
+                    <inputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rating]"
+                      cachedDataType="r4"
+                      cachedName="rating"
+                      externalMetadataColumnId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rating]"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[rating]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LinkID]"
+                      dataType="numeric"
+                      name="LinkID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[userId]"
+                      dataType="numeric"
+                      name="userId"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[movieId]"
+                      dataType="numeric"
+                      name="movieId"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
+                      dataType="numeric"
+                      name="timestamp"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rating]"
+                      dataType="r4"
+                      name="rating" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Ratings Data to Staging\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ratings]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Ratings Data to Staging\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DINON.MovieLens_SourceDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DINON.MovieLens_SourceDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkID]"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkID]"
+                      name="LinkID"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[userId]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[userId]"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[userId]"
+                      name="userId"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[movieId]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movieId]"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[movieId]"
+                      name="movieId"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[timestamp]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[timestamp]"
+                      name="timestamp"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[rating]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rating]"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[rating]"
+                      name="rating"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkID]"
+                      dataType="numeric"
+                      name="LinkID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[userId]"
+                      dataType="numeric"
+                      name="userId"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movieId]"
+                      dataType="numeric"
+                      name="movieId"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                      dataType="numeric"
+                      name="timestamp"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rating]"
+                      dataType="r4"
+                      name="rating" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkID]"
+                      dataType="numeric"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkID]"
+                      name="LinkID"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[userId]"
+                      dataType="numeric"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[userId]"
+                      name="userId"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movieId]"
+                      dataType="numeric"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movieId]"
+                      name="movieId"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                      dataType="numeric"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                      name="timestamp"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rating]"
+                      dataType="r4"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rating]"
+                      name="rating" />
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extract Ratings Data to Staging.Paths[OLE DB Source Output]"
+              endId="Package\Extract Ratings Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Extract Ratings Data to Staging\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Extract Tags Data to Staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{70a125c1-f871-452d-b2f8-89a6f64a5eaf}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract Tags Data to Staging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extract Tags Data to Staging\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[StgTags]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Tags Data to Staging\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DINON.MovieLens_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[DINON.MovieLens_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[userId]"
+                      cachedDataType="numeric"
+                      cachedName="userId"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[userId]"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[userId]" />
+                    <inputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[movieId]"
+                      cachedDataType="numeric"
+                      cachedName="movieId"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[movieId]"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[movieId]" />
+                    <inputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[tag]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="tag"
+                      externalMetadataColumnId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tag]"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[tag]" />
+                    <inputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[timestamp]"
+                      cachedDataType="numeric"
+                      cachedName="timestamp"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[timestamp]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[userId]"
+                      dataType="numeric"
+                      name="userId"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[movieId]"
+                      dataType="numeric"
+                      name="movieId"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tag]"
+                      codePage="1252"
+                      dataType="text"
+                      name="tag" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timestamp]"
+                      dataType="numeric"
+                      name="timestamp"
+                      precision="18" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Tags Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Tags Data to Staging\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tags]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Tags Data to Staging\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DINON.MovieLens_SourceDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DINON.MovieLens_SourceDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[userId]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[userId]"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[userId]"
+                      name="userId"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[movieId]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movieId]"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[movieId]"
+                      name="movieId"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[tag]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[tag]"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[tag]"
+                      name="tag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[timestamp]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[timestamp]"
+                      name="timestamp"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[userId]"
+                      dataType="numeric"
+                      name="userId"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[movieId]"
+                      dataType="numeric"
+                      name="movieId"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[tag]"
+                      codePage="1252"
+                      dataType="text"
+                      name="tag" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[timestamp]"
+                      dataType="numeric"
+                      name="timestamp"
+                      precision="18" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[userId]"
+                      dataType="numeric"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[userId]"
+                      name="userId"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movieId]"
+                      dataType="numeric"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[movieId]"
+                      name="movieId"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[tag]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[tag]"
+                      name="tag" />
+                    <outputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                      dataType="numeric"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[timestamp]"
+                      name="timestamp"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extract Tags Data to Staging.Paths[OLE DB Source Output]"
+              endId="Package\Extract Tags Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Extract Tags Data to Staging\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="216,42.6666666666667"
+          Id="Package\Extract Links Data to Staging"
+          TopLeft="294.874995687977,42.5499993374944" />
+        <NodeLayout
+          Size="224,42.6666666666667"
+          Id="Package\Extract Movies Data to Staging"
+          TopLeft="297.499995566905,124.149997780025" />
+        <NodeLayout
+          Size="226.666666666667,42.6666666666667"
+          Id="Package\Extract Ratings Data to Staging"
+          TopLeft="301.249995511025,203.449996362031" />
+        <NodeLayout
+          Size="214.666666666667,42.6666666666667"
+          Id="Package\Extract Tags Data to Staging"
+          TopLeft="304.999995455146,276.249995060265" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Extract Links Data to Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Extract Links Data to Staging\OLE DB Source"
+          TopLeft="215.5,138.5" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Extract Links Data to Staging\OLE DB Destination"
+          TopLeft="926.5,142.5" />
+        <EdgeLayout
+          Id="Package\Extract Links Data to Staging.Paths[OLE DB Source Output]"
+          TopLeft="366.166666666667,161.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="560.333333333333,0"
+              Start="0,0"
+              End="552.833333333333,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="552.833333333333,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Links Data to Staging\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Links Data to Staging\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Extract Movies Data to Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Extract Movies Data to Staging\OLE DB Source"
+          TopLeft="205.5,191.5" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Extract Movies Data to Staging\OLE DB Destination"
+          TopLeft="991.5,198.5" />
+        <EdgeLayout
+          Id="Package\Extract Movies Data to Staging.Paths[OLE DB Source Output]"
+          TopLeft="356.166666666667,216.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="635.333333333333,0"
+              Start="0,0"
+              End="627.833333333333,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="627.833333333333,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Movies Data to Staging\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Movies Data to Staging\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Extract Ratings Data to Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Extract Ratings Data to Staging\OLE DB Source"
+          TopLeft="225.5,158.5" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Extract Ratings Data to Staging\OLE DB Destination"
+          TopLeft="1015.5,158.5" />
+        <EdgeLayout
+          Id="Package\Extract Ratings Data to Staging.Paths[OLE DB Source Output]"
+          TopLeft="376.166666666667,179.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="639.333333333333,0"
+              Start="0,0"
+              End="631.833333333333,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="631.833333333333,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Ratings Data to Staging\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Ratings Data to Staging\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Extract Tags Data to Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Extract Tags Data to Staging\OLE DB Source"
+          TopLeft="181.5,144.5" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Extract Tags Data to Staging\OLE DB Destination"
+          TopLeft="1216.5,149.5" />
+        <EdgeLayout
+          Id="Package\Extract Tags Data to Staging.Paths[OLE DB Source Output]"
+          TopLeft="332.166666666667,168.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="884.333333333333,0"
+              Start="0,0"
+              End="876.833333333333,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="876.833333333333,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Tags Data to Staging\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Tags Data to Staging\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

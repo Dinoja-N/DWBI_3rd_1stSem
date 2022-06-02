@@ -1,0 +1,1848 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{4C1A9A77-8F72-41EC-A1CB-A79368DD3CC1}" Name="Dataprofiling_Output">
+      <DtsConnectionManagerID>Dataprofiling_Output</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{D3958766-8A84-419B-9C1E-F2C9E972D0B4}" Name="DINON.MovieLens_Staging">
+      <DtsConnectionManagerID>DINON.MovieLens_Staging</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgLinks" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgLinks" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgLinks" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgLinks" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgLinks" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq1">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgMovies" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq1">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgMovies" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq1">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgMovies" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq1">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgMovies" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq1">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgMovies" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq2">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgRatings" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq2">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgRatings" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq2">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgRatings" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq2">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgRatings" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq2">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgRatings" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq3">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgReleased" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq3">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgReleased" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq3">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgReleased" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq3">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgReleased" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq3">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgReleased" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq4">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgTags" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq4">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgTags" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq4">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgTags" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq4">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgTags" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq4">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table Schema="dbo" Table="StgTags" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq3" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgReleased" RowCount="29994" />
+        <Column Name="MovieID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq3" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgReleased" RowCount="29994" />
+        <Column Name="Released_ID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq3" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgReleased" RowCount="29994" />
+        <Column Name="Title" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq3" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgReleased" RowCount="29994" />
+        <Column Name="ReleasedYear" SqlDbType="Decimal" MaxLength="0" Precision="18" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq3">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgReleased" RowCount="29994" />
+        <Column Name="MovieID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>1</MinValue>
+        <MaxValue>9998</MaxValue>
+        <Mean>4999.5</Mean>
+        <StdDev>2886.1739812423</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq3">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgReleased" RowCount="29994" />
+        <Column Name="Released_ID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>1</MinValue>
+        <MaxValue>9998</MaxValue>
+        <Mean>4999.5</Mean>
+        <StdDev>2886.1739812423</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq3">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgReleased" RowCount="29994" />
+        <Column Name="ReleasedYear" SqlDbType="Decimal" MaxLength="0" Precision="18" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>1970</MinValue>
+        <MaxValue>2022</MaxValue>
+        <Mean>2001.17693538708</Mean>
+        <StdDev>14.4813515266572</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq3" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgReleased" RowCount="29994" />
+        <Column Name="Title" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>8</MinLength>
+        <MaxLength>50</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>23</Length>
+            <Count>1377</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>46</Length>
+            <Count>201</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>29</Length>
+            <Count>672</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>981</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>27</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>32</Length>
+            <Count>489</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>26</Length>
+            <Count>1056</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>657</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>35</Length>
+            <Count>441</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>43</Length>
+            <Count>210</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>49</Length>
+            <Count>444</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>1476</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>27</Length>
+            <Count>978</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>38</Length>
+            <Count>417</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>44</Length>
+            <Count>222</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>50</Length>
+            <Count>2004</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>1176</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>47</Length>
+            <Count>156</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>1428</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>30</Length>
+            <Count>687</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>132</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>41</Length>
+            <Count>288</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>1434</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>25</Length>
+            <Count>1254</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>36</Length>
+            <Count>390</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>777</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>42</Length>
+            <Count>222</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>22</Length>
+            <Count>1407</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>33</Length>
+            <Count>540</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>39</Length>
+            <Count>297</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>1170</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>45</Length>
+            <Count>204</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>48</Length>
+            <Count>147</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>1266</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>31</Length>
+            <Count>594</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>34</Length>
+            <Count>519</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>40</Length>
+            <Count>228</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>381</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>1419</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>28</Length>
+            <Count>936</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>909</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>37</Length>
+            <Count>372</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>9</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq3">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgReleased" RowCount="29994" />
+        <Column Name="MovieID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9998</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq3">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgReleased" RowCount="29994" />
+        <Column Name="Released_ID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9998</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq3">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgReleased" RowCount="29994" />
+        <Column Name="Title" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9996</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq2" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgRatings" RowCount="69986" />
+        <Column Name="MovieID" SqlDbType="Decimal" MaxLength="0" Precision="18" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq2" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgRatings" RowCount="69986" />
+        <Column Name="LinkID" SqlDbType="Decimal" MaxLength="0" Precision="18" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq2" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgRatings" RowCount="69986" />
+        <Column Name="UserID" SqlDbType="Decimal" MaxLength="0" Precision="18" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq2" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgRatings" RowCount="69986" />
+        <Column Name="timestamp" SqlDbType="Decimal" MaxLength="0" Precision="18" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq2" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgRatings" RowCount="69986" />
+        <Column Name="rating" SqlDbType="Real" MaxLength="0" Precision="24" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq2">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgRatings" RowCount="69986" />
+        <Column Name="MovieID" SqlDbType="Decimal" MaxLength="0" Precision="18" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>1</MinValue>
+        <MaxValue>9998</MaxValue>
+        <Mean>4999.5</Mean>
+        <StdDev>2886.1739812423</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq2">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgRatings" RowCount="69986" />
+        <Column Name="LinkID" SqlDbType="Decimal" MaxLength="0" Precision="18" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>1</MinValue>
+        <MaxValue>9998</MaxValue>
+        <Mean>4999.5</Mean>
+        <StdDev>2886.1739812423</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq2">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgRatings" RowCount="69986" />
+        <Column Name="UserID" SqlDbType="Decimal" MaxLength="0" Precision="18" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>1</MinValue>
+        <MaxValue>9998</MaxValue>
+        <Mean>4999.5</Mean>
+        <StdDev>2886.1739812423</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq2">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgRatings" RowCount="69986" />
+        <Column Name="timestamp" SqlDbType="Decimal" MaxLength="0" Precision="18" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>831051043</MinValue>
+        <MaxValue>1424844830</MaxValue>
+        <Mean>1059818153.07852</Mean>
+        <StdDev>160248172.287758</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq2">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgRatings" RowCount="69986" />
+        <Column Name="rating" SqlDbType="Real" MaxLength="0" Precision="24" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>0.5</MinValue>
+        <MaxValue>5</MaxValue>
+        <Mean>3.64437887577516</Mean>
+        <StdDev>1.05169155188483</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgLinks" RowCount="69986" />
+        <Column Name="LinkID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgLinks" RowCount="69986" />
+        <Column Name="ImdbID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgLinks" RowCount="69986" />
+        <Column Name="TmdbID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgLinks" RowCount="69986" />
+        <Column Name="LinkID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>1</MinValue>
+        <MaxValue>9998</MaxValue>
+        <Mean>4999.5</Mean>
+        <StdDev>2886.1739812423</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgLinks" RowCount="69986" />
+        <Column Name="ImdbID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>4972</MinValue>
+        <MaxValue>500140</MaxValue>
+        <Mean>131171.320464093</Mean>
+        <StdDev>90092.4145280613</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgLinks" RowCount="69986" />
+        <Column Name="TmdbID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>0</MinValue>
+        <MaxValue>416437</MaxValue>
+        <Mean>31902.1220244049</Mean>
+        <StdDev>40652.5920801353</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgLinks" RowCount="69986" />
+        <Column Name="LinkID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9998</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgLinks" RowCount="69986" />
+        <Column Name="ImdbID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9998</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgLinks" RowCount="69986" />
+        <Column Name="TmdbID" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9949</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>0</Value>
+            <Count>329</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq1" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgMovies" RowCount="69993" />
+        <Column Name="MovieID" SqlDbType="Decimal" MaxLength="0" Precision="18" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq1" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgMovies" RowCount="69993" />
+        <Column Name="Title" SqlDbType="VarChar" MaxLength="500" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq1" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgMovies" RowCount="69993" />
+        <Column Name="Genres" SqlDbType="VarChar" MaxLength="500" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq1">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgMovies" RowCount="69993" />
+        <Column Name="MovieID" SqlDbType="Decimal" MaxLength="0" Precision="18" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>1</MinValue>
+        <MaxValue>9999</MaxValue>
+        <Mean>5000</Mean>
+        <StdDev>2886.46265637833</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq1" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgMovies" RowCount="69993" />
+        <Column Name="Title" SqlDbType="VarChar" MaxLength="500" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>2</MinLength>
+        <MaxLength>145</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>23</Length>
+            <Count>2702</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>46</Length>
+            <Count>336</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>69</Length>
+            <Count>28</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>92</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>29</Length>
+            <Count>1029</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>75</Length>
+            <Count>35</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>3325</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>931</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>109</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>56</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>52</Length>
+            <Count>168</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>95</Length>
+            <Count>14</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>72</Length>
+            <Count>42</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>78</Length>
+            <Count>56</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>66</Length>
+            <Count>21</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>32</Length>
+            <Count>728</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>26</Length>
+            <Count>1813</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>2604</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>35</Length>
+            <Count>721</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>86</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>63</Length>
+            <Count>84</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>735</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>55</Length>
+            <Count>210</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>43</Length>
+            <Count>343</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>49</Length>
+            <Count>238</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>67</Length>
+            <Count>42</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>3374</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>27</Length>
+            <Count>1617</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>58</Length>
+            <Count>91</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>81</Length>
+            <Count>14</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>64</Length>
+            <Count>84</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>87</Length>
+            <Count>21</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>38</Length>
+            <Count>637</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>44</Length>
+            <Count>350</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>651</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>50</Length>
+            <Count>189</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>2422</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>47</Length>
+            <Count>252</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>70</Length>
+            <Count>28</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>93</Length>
+            <Count>35</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>30</Length>
+            <Count>952</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>3759</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>84</Length>
+            <Count>21</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>1470</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>61</Length>
+            <Count>77</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>90</Length>
+            <Count>21</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>41</Length>
+            <Count>525</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>259</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>65</Length>
+            <Count>112</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>79</Length>
+            <Count>49</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>3458</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>73</Length>
+            <Count>14</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>25</Length>
+            <Count>2254</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>36</Length>
+            <Count>644</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>105</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>2856</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>62</Length>
+            <Count>84</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>42</Length>
+            <Count>385</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>623</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>56</Length>
+            <Count>105</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>99</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>22</Length>
+            <Count>3024</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>76</Length>
+            <Count>63</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>59</Length>
+            <Count>91</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>82</Length>
+            <Count>21</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>33</Length>
+            <Count>686</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>39</Length>
+            <Count>434</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>3640</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>53</Length>
+            <Count>168</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>102</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>45</Length>
+            <Count>294</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>145</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>2</Length>
+            <Count>42</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>48</Length>
+            <Count>196</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>71</Length>
+            <Count>28</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>94</Length>
+            <Count>21</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>77</Length>
+            <Count>21</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>3570</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>31</Length>
+            <Count>903</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>60</Length>
+            <Count>70</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>34</Length>
+            <Count>721</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>40</Length>
+            <Count>329</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>1890</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>54</Length>
+            <Count>182</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>91</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>103</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>97</Length>
+            <Count>14</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>3528</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>68</Length>
+            <Count>42</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>80</Length>
+            <Count>21</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>28</Length>
+            <Count>1407</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>74</Length>
+            <Count>49</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>57</Length>
+            <Count>105</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>3045</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>37</Length>
+            <Count>518</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>945</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>51</Length>
+            <Count>161</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>100</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq1" IsExact="true">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgMovies" RowCount="69993" />
+        <Column Name="Genres" SqlDbType="VarChar" MaxLength="500" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>3</MinLength>
+        <MaxLength>209</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>23</Length>
+            <Count>1351</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>46</Length>
+            <Count>140</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>69</Length>
+            <Count>56</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>209</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>29</Length>
+            <Count>763</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>75</Length>
+            <Count>35</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>1925</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>938</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>89</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>91</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>52</Length>
+            <Count>147</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>95</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>72</Length>
+            <Count>35</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>66</Length>
+            <Count>28</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>78</Length>
+            <Count>14</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>32</Length>
+            <Count>693</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>26</Length>
+            <Count>1386</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>3990</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>35</Length>
+            <Count>658</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>86</Length>
+            <Count>21</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>63</Length>
+            <Count>21</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>6790</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>55</Length>
+            <Count>133</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>43</Length>
+            <Count>343</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>98</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>49</Length>
+            <Count>189</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>113</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>67</Length>
+            <Count>42</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>1911</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>27</Length>
+            <Count>1554</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>58</Length>
+            <Count>98</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>81</Length>
+            <Count>14</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>64</Length>
+            <Count>56</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>38</Length>
+            <Count>364</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>101</Length>
+            <Count>21</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>44</Length>
+            <Count>280</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>784</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>50</Length>
+            <Count>182</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>1358</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>47</Length>
+            <Count>217</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>70</Length>
+            <Count>35</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>93</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>3031</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>30</Length>
+            <Count>651</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>84</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>110</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>189</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>61</Length>
+            <Count>77</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>41</Length>
+            <Count>406</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>96</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>65</Length>
+            <Count>56</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>2443</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>73</Length>
+            <Count>42</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>25</Length>
+            <Count>1582</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>36</Length>
+            <Count>728</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>105</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>85</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>4571</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>62</Length>
+            <Count>70</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>42</Length>
+            <Count>406</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>8386</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>56</Length>
+            <Count>112</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>22</Length>
+            <Count>2051</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>76</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>59</Length>
+            <Count>77</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>108</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>82</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>39</Length>
+            <Count>364</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>33</Length>
+            <Count>763</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>1456</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>88</Length>
+            <Count>14</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>53</Length>
+            <Count>133</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>102</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>45</Length>
+            <Count>238</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>48</Length>
+            <Count>189</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>71</Length>
+            <Count>42</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>94</Length>
+            <Count>21</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>77</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>686</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>31</Length>
+            <Count>784</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>60</Length>
+            <Count>56</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>34</Length>
+            <Count>693</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>40</Length>
+            <Count>343</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>2499</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>54</Length>
+            <Count>154</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>97</Length>
+            <Count>14</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>2975</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>68</Length>
+            <Count>49</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>28</Length>
+            <Count>1519</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>74</Length>
+            <Count>21</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>57</Length>
+            <Count>63</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>4172</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>37</Length>
+            <Count>448</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>532</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>51</Length>
+            <Count>105</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq1">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgMovies" RowCount="69993" />
+        <Column Name="Title" SqlDbType="VarChar" MaxLength="500" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>9870</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq1">
+        <DataSourceID>{D3958766-8A84-419B-9C1E-F2C9E972D0B4}</DataSourceID>
+        <Table DataSource="DINON" Database="MovieLens_Staging" Schema="dbo" Table="StgMovies" RowCount="69993" />
+        <Column Name="Genres" SqlDbType="VarChar" MaxLength="500" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>2828</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value> The (1999)",Drama</Value>
+            <Count>98</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Musical</Value>
+            <Count>336</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Adventure</Value>
+            <Count>126</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Musical|Romance</Value>
+            <Count>147</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Crime|Mystery|Thriller</Value>
+            <Count>91</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Drama</Value>
+            <Count>2513</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Animation|Children</Value>
+            <Count>105</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Horror|Sci-Fi</Value>
+            <Count>84</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Thriller</Value>
+            <Count>119</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Crime|Thriller</Value>
+            <Count>259</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Crime|Drama</Value>
+            <Count>161</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Adventure|Drama</Value>
+            <Count>133</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Thriller</Value>
+            <Count>280</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Crime</Value>
+            <Count>119</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Adventure|Children|Drama</Value>
+            <Count>126</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Musical|Romance</Value>
+            <Count>287</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy</Value>
+            <Count>5040</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Crime|Drama</Value>
+            <Count>903</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Crime</Value>
+            <Count>196</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Children|Comedy|Fantasy</Value>
+            <Count>105</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Western</Value>
+            <Count>105</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Crime|Drama|Mystery</Value>
+            <Count>77</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Mystery</Value>
+            <Count>140</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Mystery|Thriller</Value>
+            <Count>203</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Western</Value>
+            <Count>406</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Mystery|Thriller</Value>
+            <Count>126</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sci-Fi|Thriller</Value>
+            <Count>70</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Sci-Fi</Value>
+            <Count>224</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value> The (2002)",Drama</Value>
+            <Count>70</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Fantasy|Romance</Value>
+            <Count>84</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Documentary|IMAX</Value>
+            <Count>98</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Horror|Sci-Fi|Thriller</Value>
+            <Count>224</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Drama|Musical</Value>
+            <Count>112</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Adventure|Drama|War</Value>
+            <Count>77</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Horror|Mystery|Thriller</Value>
+            <Count>189</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Adventure|Comedy</Value>
+            <Count>119</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Horror</Value>
+            <Count>364</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Adventure|Sci-Fi|Thriller</Value>
+            <Count>98</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Children|Comedy</Value>
+            <Count>336</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Adventure|Thriller</Value>
+            <Count>203</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Romance</Value>
+            <Count>2219</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Musical</Value>
+            <Count>140</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sci-Fi</Value>
+            <Count>224</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Comedy|Crime</Value>
+            <Count>154</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Fantasy</Value>
+            <Count>161</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Horror|Thriller</Value>
+            <Count>161</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Adventure|Children</Value>
+            <Count>161</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Thriller</Value>
+            <Count>833</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Thriller</Value>
+            <Count>497</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Crime|Drama|Thriller</Value>
+            <Count>616</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Horror</Value>
+            <Count>168</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Sci-Fi</Value>
+            <Count>252</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value> The (1997)",Drama</Value>
+            <Count>98</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Crime|Drama|Mystery|Thriller</Value>
+            <Count>98</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Crime|Drama</Value>
+            <Count>245</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Children|Drama</Value>
+            <Count>119</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value> The (2001)",Drama</Value>
+            <Count>98</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Documentary</Value>
+            <Count>1575</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Horror|Mystery</Value>
+            <Count>105</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Adventure|Children|Comedy</Value>
+            <Count>84</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Horror</Value>
+            <Count>1141</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|War</Value>
+            <Count>91</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>War</Value>
+            <Count>91</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Drama|War</Value>
+            <Count>224</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Romance</Value>
+            <Count>189</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Crime|Drama|Thriller</Value>
+            <Count>238</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Adventure|Comedy|Sci-Fi</Value>
+            <Count>70</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action</Value>
+            <Count>385</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Fantasy</Value>
+            <Count>70</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Adventure|Comedy</Value>
+            <Count>140</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Romance|War</Value>
+            <Count>196</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Western</Value>
+            <Count>161</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Horror|Thriller</Value>
+            <Count>567</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Drama|Musical|Romance</Value>
+            <Count>70</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Crime|Drama|Romance</Value>
+            <Count>105</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Adventure|Drama|Romance</Value>
+            <Count>98</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Adventure|Drama</Value>
+            <Count>238</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Adventure|Fantasy</Value>
+            <Count>133</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama</Value>
+            <Count>8267</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Comedy</Value>
+            <Count>434</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Adventure|Sci-Fi</Value>
+            <Count>217</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Crime</Value>
+            <Count>504</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Crime|Thriller</Value>
+            <Count>252</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Comedy|Romance</Value>
+            <Count>77</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Adventure|Sci-Fi</Value>
+            <Count>105</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Fantasy|Romance</Value>
+            <Count>112</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Sci-Fi</Value>
+            <Count>168</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Drama|Thriller</Value>
+            <Count>210</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value> The (1996)",Drama</Value>
+            <Count>91</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|Film-Noir</Value>
+            <Count>70</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Drama|War</Value>
+            <Count>735</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Adventure</Value>
+            <Count>168</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Comedy|Crime|Thriller</Value>
+            <Count>140</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Comedy|Crime|Drama</Value>
+            <Count>84</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Documentary|Drama</Value>
+            <Count>77</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Drama</Value>
+            <Count>413</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|War</Value>
+            <Count>91</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Drama|Romance</Value>
+            <Count>1302</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Horror|Sci-Fi</Value>
+            <Count>308</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Documentary</Value>
+            <Count>119</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Action|Sci-Fi|Thriller</Value>
+            <Count>182</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Documentary|Musical</Value>
+            <Count>140</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Romance</Value>
+            <Count>1953</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Comedy|Musical</Value>
+            <Count>308</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>
